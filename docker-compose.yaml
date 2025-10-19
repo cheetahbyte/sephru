@@ -11,7 +11,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
     environment:
-
+      RUNNER_SCOPE: "org"
       ORG_NAME: "${GITHUB_ORGA}"
       ACCESS_TOKEN: "${GITHUB_PAT}"         # store in Dokploy as an env secret
       RUNNER_NAME_PREFIX: "dokploy"         # will append a random suffix
