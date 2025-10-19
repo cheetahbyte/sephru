@@ -11,21 +11,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
     environment:
-      # Choose ONE of the following registration modes:
-
-      # --- Repo runner (attach to a single repository) ---
-      # REPO_URL: "https://github.com/<owner>/<repo>"
 
       ORG_NAME: "${GITHUB_ORGA}"
-
-      # Common settings:
       ACCESS_TOKEN: "${GITHUB_PAT}"         # store in Dokploy as an env secret
       RUNNER_NAME_PREFIX: "dokploy"         # will append a random suffix
       RUNNER_LABELS: "dokploy,linux,x64"    # use in 'runs-on' matrix
       EPHEMERAL: "true"                     # one job → auto-deregister
-
-      # Optional hardening:
-      # DISABLE_AUTO_UPDATE: "true"         # pin runner version during job
-      # RUN_AS_ROOT: "false"                 # drop root (requires extra setup)
-
-    # If your workflows need more CPU/RAM, set resource limits here as needed.
